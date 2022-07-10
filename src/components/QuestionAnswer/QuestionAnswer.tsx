@@ -25,7 +25,7 @@ function QuestionAnswer(props: Types) {
         let send = Object.assign({}, copyProps, answer);
         console.log(send);
         let url = 'http://79.132.138.108/front-test';
-        axios.post(url, JSON.stringify(send))
+        axios.post(url, send)
             .then(function (response: any) {
                 console.log(response);
             })
