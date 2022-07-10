@@ -1,0 +1,86 @@
+.question-answer {
+    background: var(--var-main-color);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
+.answer-text {
+
+    &__textarea {
+        width: 100%;
+        padding: 20px;
+        border: 2px solid var(--var-second-color);
+        border-radius: 2px;
+        color: var(--var-second-color);
+    }
+}
+
+.answer {
+
+    &__item {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        width: 100%;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--var-second-color);
+    }
+
+    &__label-input {
+        width: 100%;
+    }
+
+    &__check-box {
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--var-second-color);
+        border-radius: 2px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    &__check-box, &__radio:checked {
+        background-size: contain;
+        background-image: url(../../img/done.svg);
+    }
+
+    &__radio {
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--var-second-color);
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    &__list {
+        width: 300px;
+        padding: 10px;
+        border: 2px solid var(--var-second-color);
+        border-radius: 5px;
+    }
+    &__button {
+        width: 300px;
+        padding: 10px 30px;
+        font-size: 18px;
+        text-align: center;
+        background: var(--var-main-color);
+        border: 2px solid var(--var-second-color);
+        margin-top: 50px;
+    }
+}
+
+.input-plus {
+    background-size: contain;
+        background-image: url(../../img/add.svg);
+}
+
+.button-add {
+    cursor: pointer;
+}

@@ -1,0 +1,24 @@
+.sidebar {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: var(--var-main-color);
+
+    &__head {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        margin: 20px 0 0 20px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+
+    &__text {
+
+    }
+}
