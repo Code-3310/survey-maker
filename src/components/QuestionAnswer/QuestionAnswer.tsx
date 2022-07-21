@@ -12,64 +12,47 @@ export interface Types {
 }
 
 function QuestionAnswer(props: Types) {
-    const [answer, setAnswer] = useState({
-        type: "default",
-        answer: "example",
-    })
+    let typeForJSON = "text";
 
-    function sendJSON(answer: Object) {
-        let copyProps = {
-            type: props.type,
-            question: props.returnQuestion(),
-        };
-        let send = Object.assign({}, copyProps, answer);
-        console.log(send);
-        let url = 'http://79.132.138.108/front-test';
-        axios.post(url, send)
-            .then(function (response: any) {
-                console.log(response);
-            })
-            .catch(function (error: Error) {
-                console.log(error);
-            });
-    }
+    // function sendJSON(answer: Object) {
+    //     let copyProps = {
+    //         type: props.type,
+    //         question: props.returnQuestion(),
+    //     };
+    //     let send = Object.assign({}, copyProps, answer);
+    //     console.log(send);
+    //     let url = 'http://79.132.138.108/front-test';
+    //     axios.post(url, send)
+    //         .then(function (response: any) {
+    //             console.log(response);
+    //         })
+    //         .catch(function (error: Error) {
+    //             console.log(error);
+    //         });
+    // }
 
-    const callbackAnswer = useCallback((props: { type: string, answer: any } | { type?: string, answer: any }) => {
-        let copyAnswer = answer;
-        // copyAnswer.type = props.type;
-        copyAnswer.answer = props.answer;
-        setAnswer(copyAnswer);
-        sendJSON(props);
+    const callbackAnswer = useCallback((answer: any) => {
+        let json = {
+            type: typeForJSON,
+            question: "default",
+            options: answer.answer,
+        }
+        console.log(json);
+        props.returnQuestion(json);
     }, [props]);
 
     if (props.type == "one-of-list") {
+        typeForJSON = "options";
         return (
             <div className="question-answer">
                 <AnswerOneOfList callback={callbackAnswer} />
             </div>
         )
     } else if (props.type == "check-box") {
+        typeForJSON = "options";
         return (
             <div className="question-answer">
-                <AnswerCheckBox />
-            </div>
-        )
-    } else if (props.type == "list") {
-        return (
-            <div className="question-answer">
-                <AnswerList />
-            </div>
-        )
-    } else if (props.type == "date") {
-        return (
-            <div className="question-answer">
-                <AnswerCheckBox />
-            </div>
-        )
-    } else if (props.type == "time") {
-        return (
-            <div className="question-answer">
-                <AnswerCheckBox />
+                <AnswerCheckBox callback={callbackAnswer} />
             </div>
         )
     } else {
@@ -79,6 +62,25 @@ function QuestionAnswer(props: Types) {
             </div>
         )
     }
+    // else if (props.type == "list") {
+    //     return (
+    //         <div className="question-answer">
+    //             <AnswerCheckBox />
+    //         </div>
+    //     )
+    // } else if (props.type == "date") {
+    //     return (
+    //         <div className="question-answer">
+    //             <AnswerCheckBox />
+    //         </div>
+    //     )
+    // } else if (props.type == "time") {
+    //     return (
+    //         <div className="question-answer">
+    //             <AnswerCheckBox />
+    //         </div>
+    //     )
+    
 }
 
 export default QuestionAnswer;

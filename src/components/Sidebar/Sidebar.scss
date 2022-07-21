@@ -5,11 +5,17 @@
     height: 100%;
     background: var(--var-main-color);
 
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        top: 0;
+        padding: 20px;
+    }
+
     &__head {
         display: flex;
         align-items: center;
         height: 48px;
-        margin: 20px 0 0 20px;
     }
 
     &__title {
@@ -18,7 +24,28 @@
         text-transform: uppercase;
     }
 
-    &__text {
+    &__body {
+        height: fit-content;
+        width: 100%;
+    }
 
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 40px);
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__button {
+        padding: 10px 40px 11px 40px;
+        border: 2px solid var(--var-second-color);
+    }
+
+    &__text {
+        font-size: 18px;
+        padding: 5px 0;
     }
 }

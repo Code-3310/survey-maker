@@ -9,7 +9,7 @@ import { ReactComponent as ClockIcon } from '../../img/clock.svg'
 import { ReactComponent as AddPhotoIcon } from '../../img/add-photo.svg'
 import QuestionAnswer from '../QuestionAnswer/QuestionAnswer';
 
-function Question() {
+function Question(props: any) {
     const [type, setType] = useState("text");
     const [question, setQuestion] = useState<string>("");
     // const [typeAndQuestion, setTypeAndQuestion] = useState({
@@ -32,7 +32,11 @@ function Question() {
         setQuestion(e.target.value);
     }
 
-    const returnQuestion = useCallback(() => {
+    const returnQuestion = useCallback((answer: any) => {
+        let json = answer;
+        json.question = question;
+        console.log(json);
+        props.callbackQuestion(json);
         return question;
     }, [question]);
 
@@ -51,7 +55,7 @@ function Question() {
                     <CheckBoxIcon className="question-type__img" />
                     <p className='question-type__text'>Несколько из списка</p>
                 </button>
-                <button className="question-type__item" onClick={buttonHandler} value="list">
+                {/* <button className="question-type__item" onClick={buttonHandler} value="list">
                     <ListIcon className="question-type__img" />
                     <p className='question-type__text'>Выпадающий список</p>
                 </button>
@@ -62,7 +66,7 @@ function Question() {
                 <button className="question-type__item" onClick={buttonHandler} value="time">
                     <ClockIcon className="question-type__img" />
                     <p className='question-type__text'>Время</p>
-                </button>
+                </button> */}
             </div>
             <div className="question-name">
                 <input type="text" onChange={inputHandler} className="question-name__input" placeholder='Вопрос' />

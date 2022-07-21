@@ -38,7 +38,6 @@ function AnswerOneOfList(props: any) {
             variant: "Вариант ответа",
         })
         setRadio(copyRadio);
-        console.log(radio);
         let copyTextInput = textInput;
         copyTextInput.push("Вариант ответа");
         setTextInput(copyTextInput);
@@ -62,7 +61,6 @@ function AnswerOneOfList(props: any) {
         }
         copyRadio[id].checked = e.target.checked;
         setRadio(copyRadio);
-        console.log(radio);
     };
 
     const inputHandler = (e: any) => {
@@ -82,7 +80,6 @@ function AnswerOneOfList(props: any) {
             copyRadio[i].variant = copyTextInput[i];
         }
         result.answer = copyRadio;
-        console.log(result);
         props.callback(result);
     }
 
