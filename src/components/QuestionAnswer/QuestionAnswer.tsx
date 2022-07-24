@@ -14,23 +14,6 @@ export interface Types {
 function QuestionAnswer(props: Types) {
     let typeForJSON = "text";
 
-    // function sendJSON(answer: Object) {
-    //     let copyProps = {
-    //         type: props.type,
-    //         question: props.returnQuestion(),
-    //     };
-    //     let send = Object.assign({}, copyProps, answer);
-    //     console.log(send);
-    //     let url = 'http://79.132.138.108/front-test';
-    //     axios.post(url, send)
-    //         .then(function (response: any) {
-    //             console.log(response);
-    //         })
-    //         .catch(function (error: Error) {
-    //             console.log(error);
-    //         });
-    // }
-
     const callbackAnswer = useCallback((answer: any) => {
         let json = {
             type: typeForJSON,
@@ -62,25 +45,6 @@ function QuestionAnswer(props: Types) {
             </div>
         )
     }
-    // else if (props.type == "list") {
-    //     return (
-    //         <div className="question-answer">
-    //             <AnswerCheckBox />
-    //         </div>
-    //     )
-    // } else if (props.type == "date") {
-    //     return (
-    //         <div className="question-answer">
-    //             <AnswerCheckBox />
-    //         </div>
-    //     )
-    // } else if (props.type == "time") {
-    //     return (
-    //         <div className="question-answer">
-    //             <AnswerCheckBox />
-    //         </div>
-    //     )
-    
 }
 
 export default QuestionAnswer;

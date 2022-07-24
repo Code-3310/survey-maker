@@ -12,19 +12,11 @@ import QuestionAnswer from '../QuestionAnswer/QuestionAnswer';
 function Question(props: any) {
     const [type, setType] = useState("text");
     const [question, setQuestion] = useState<string>("");
-    // const [typeAndQuestion, setTypeAndQuestion] = useState({
-    //     type: "text",
-    //     question: "any question",
-    // });
 
     const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         const button: HTMLButtonElement = event.currentTarget;
         setType(button.value);
-        // let copyTypeAndQuestion = typeAndQuestion;
-        // copyTypeAndQuestion.type = button.value;
-        // console.log(button.value);
-        // setTypeAndQuestion(copyTypeAndQuestion);
     };
 
     function inputHandler(e: any) {

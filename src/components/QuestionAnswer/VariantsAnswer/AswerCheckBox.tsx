@@ -11,7 +11,7 @@ function AnswerCheckBox(props: any) {
     const [textInput, setTextInput] = useState<Array<string>>([]);
     const [checkBoxAnswer, setCheckBoxAnswer] = useState([{
         checked: false,
-        variant: "Вариант ответа",
+        value: "Вариант ответа",
     }])
 
     const CheckBox = (props: ChechBoxProps) => {
@@ -28,7 +28,7 @@ function AnswerCheckBox(props: any) {
         let copyBox = checkBoxAnswer;
         copyBox.push({
             checked: false,
-            variant: "Вариант ответа",
+            value: "Вариант ответа",
         })
         setCheckBoxAnswer(copyBox);
         let copyTextInput = textInput;
@@ -57,7 +57,7 @@ function AnswerCheckBox(props: any) {
             answer: [{}],
         }
         for(let i = 0; i < copyBox.length; i++) {
-            copyBox[i].variant = copyTextInput[i];
+            copyBox[i].value = copyTextInput[i];
         }
         result.answer = copyBox;
         props.callback(result);

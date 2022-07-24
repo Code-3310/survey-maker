@@ -35,7 +35,7 @@ function AnswerList() {
     const [textInput, setTextInput] = useState<Array<string>>(["Вариант ответа"]);
     const [radio, setRadio] = useState([{
         checked: false,
-        variant: "Вариант ответа",
+        value: "Вариант ответа",
     }])
 
     const ListItem = (props: Item) => {
@@ -60,7 +60,7 @@ function AnswerList() {
         let copyRadio = radio;
         copyRadio.push({
             checked: false,
-            variant: "Вариант ответа",
+            value: "Вариант ответа",
         })
         setRadio(copyRadio);
         console.log(radio);

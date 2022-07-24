@@ -1,16 +1,9 @@
 {
     "type": [
         "text",
-        "about",
         "options"
     ],
     "question": "string",
-    "about": [
-        {
-            "title": "string",
-            "desription": "string"
-        }
-    ],
     "options": [
         {
             "checked": "boolean",

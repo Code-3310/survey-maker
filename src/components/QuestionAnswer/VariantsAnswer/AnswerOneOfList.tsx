@@ -16,7 +16,7 @@ function AnswerOneOfList(props: any) {
     const [textInput, setTextInput] = useState<Array<string>>([]);
     const [radio, setRadio] = useState([{
         checked: false,
-        variant: "Вариант ответа",
+        value: "Вариант ответа",
     }])
 
 
@@ -35,7 +35,7 @@ function AnswerOneOfList(props: any) {
         let copyRadio = radio;
         copyRadio.push({
             checked: false,
-            variant: "Вариант ответа",
+            value: "Вариант ответа",
         })
         setRadio(copyRadio);
         let copyTextInput = textInput;
@@ -77,7 +77,7 @@ function AnswerOneOfList(props: any) {
             answer: [{}],
         }
         for(let i = 0; i < copyRadio.length; i++) {
-            copyRadio[i].variant = copyTextInput[i];
+            copyRadio[i].value = copyTextInput[i];
         }
         result.answer = copyRadio;
         props.callback(result);
